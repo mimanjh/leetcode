@@ -30,6 +30,7 @@ class Solution(object):
         :type n: int
         :rtype: float
         """
+        # exponentiation algorithm using divide and conquer approach
         if not n:
             return 1
         if n < 0:
