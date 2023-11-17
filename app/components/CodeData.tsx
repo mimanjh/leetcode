@@ -7,21 +7,18 @@ export class CodeData {
         name: string,
         code: string,
         language: string,
-        date: string,
         difficulty: string
     ) {
         this.id = id;
         this.name = name;
         this.code = code;
         this.language = language;
-        this.date = date;
         this.difficulty = difficulty;
     }
     id: number;
     name: string;
     code: string;
     language: string;
-    date: string;
     difficulty: string;
 }
 
@@ -36,7 +33,7 @@ export function extractCodeData(directory: string): CodeData[] {
         files.forEach((file) => {
             const filePath = path.join(difficultyPath, file);
 
-            var codeData = new CodeData(0, "", "", "", "", "");
+            var codeData = new CodeData(0, "", "", "", "");
 
             if (path.extname(filePath) === ".py") {
                 const content = fs.readFileSync(filePath, "utf-8");
@@ -47,14 +44,11 @@ export function extractCodeData(directory: string): CodeData[] {
 
                 const code = content;
 
-                const date = "2023-11-08";
-
                 codeData = new CodeData(
                     parseInt(id),
                     name,
                     code,
                     "Python",
-                    date,
                     difficulty
                 );
             } else if (path.extname(filePath) === ".js") {
@@ -66,14 +60,11 @@ export function extractCodeData(directory: string): CodeData[] {
 
                 const code = content;
 
-                const date = "2023-11-08";
-
                 codeData = new CodeData(
                     parseInt(id),
                     name,
                     code,
                     "JavaScript",
-                    date,
                     difficulty
                 );
             }

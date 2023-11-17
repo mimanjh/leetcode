@@ -2,7 +2,7 @@
 import React from "react";
 import { CodeData } from "./CodeData";
 
-const Card = ({ id, name, code, language, date, difficulty }: CodeData) => {
+const Card = ({ id, name, code, language, difficulty }: CodeData) => {
     return (
         <div
             onClick={() => document.getElementById("codeModal")!.showModal()}
@@ -14,7 +14,7 @@ const Card = ({ id, name, code, language, date, difficulty }: CodeData) => {
                     {id}: {name}
                 </h2>
                 <p>
-                    {difficulty} | {language} | {date}
+                    {difficulty} | {language}
                 </p>
             </div>
             <dialog id="codeModal" className="modal">
