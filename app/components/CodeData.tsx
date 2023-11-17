@@ -39,7 +39,7 @@ export function extractCodeData(directory: string): CodeData[] {
                 const content = fs.readFileSync(filePath, "utf-8");
                 const [id, name] = path
                     .basename(filePath)
-                    .match(/(\d+)_(\w+)\.(\w+)/)!
+                    .match(/(\d+)_(.+)\.(\w+)/)!
                     .slice(1);
 
                 const code = content;
@@ -55,7 +55,7 @@ export function extractCodeData(directory: string): CodeData[] {
                 const content = fs.readFileSync(filePath, "utf-8");
                 const [id, name] = path
                     .basename(filePath)
-                    .match(/(\d+)_(\w+)\.(\w+)/)!
+                    .match(/(\d+)_(.+)\.(\w+)/)!
                     .slice(1);
 
                 const code = content;
@@ -71,6 +71,8 @@ export function extractCodeData(directory: string): CodeData[] {
             codeDataList.push(codeData);
         });
     });
+
+    codeDataList.sort((a, b) => a.id - b.id);
 
     return codeDataList;
 }
