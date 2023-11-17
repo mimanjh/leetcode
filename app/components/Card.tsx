@@ -5,7 +5,11 @@ import { CodeData } from "./CodeData";
 const Card = ({ id, name, code, language, difficulty }: CodeData) => {
     return (
         <div
-            onClick={() => document.getElementById("codeModal")!.showModal()}
+            onClick={() =>
+                (
+                    document.getElementById("codeModal")! as HTMLDialogElement
+                ).showModal()
+            }
             className="card card-compact w-96 shadow-xl m-4 bg-red-50 text-black"
             style={{ cursor: "pointer" }}
         >
