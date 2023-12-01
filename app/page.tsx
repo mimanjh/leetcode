@@ -15,7 +15,8 @@ export default function Home({
             return (
                 d.name.toLowerCase().includes(query) ||
                 d.language.toLowerCase().includes(query) ||
-                d.difficulty.toLowerCase().includes(query)
+                d.difficulty.toLowerCase().includes(query) ||
+                d.id.toString().includes(query)
             );
         });
 
