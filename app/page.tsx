@@ -22,8 +22,7 @@ export default function Home({
 
         return filteredData;
     };
-    const data = fetchFilteredData(extractCodeData("code"), query);
-    console.log(data[0]);
+    const data = fetchFilteredData(extractCodeData("app/code"), query);
 
     return (
         <div>
