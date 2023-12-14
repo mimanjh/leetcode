@@ -24,7 +24,7 @@ export class CodeData {
 
 export function extractCodeData(directory: string): CodeData[] {
     const codeDataList: CodeData[] = [];
-    const difficulties = fs.readdirSync(directory);
+    const difficulties = fs.readdirSync(process.cwd() + directory);
 
     difficulties.forEach((difficulty) => {
         const difficultyPath = path.join(directory, difficulty);
