@@ -22,12 +22,13 @@ export class CodeData {
     difficulty: string;
 }
 
-export function extractCodeData(directory: string): CodeData[] {
+export function extractCodeData(): CodeData[] {
     const codeDataList: CodeData[] = [];
-    const difficulties = fs.readdirSync(directory);
+    const dir = path.resolve("./public", "code");
+    const difficulties = fs.readdirSync(dir);
 
     difficulties.forEach((difficulty) => {
-        const difficultyPath = path.join(directory, difficulty);
+        const difficultyPath = path.join(dir, difficulty);
         const files = fs.readdirSync(difficultyPath);
 
         files.forEach((file) => {

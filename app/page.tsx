@@ -22,7 +22,7 @@ export default function Home({
 
         return filteredData;
     };
-    const data = fetchFilteredData(extractCodeData("app/code"), query);
+    const data = fetchFilteredData(extractCodeData(), query);
 
     return (
         <div>
