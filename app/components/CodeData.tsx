@@ -25,8 +25,10 @@ export class CodeData {
 export function extractCodeData(directory: string): CodeData[] {
     const codeDataList: CodeData[] = [];
     // localhost directory
-    // process.chdir("public"); // for localhost
+    console.log(process.cwd());
+    // const defaultPath = path.join(process.cwd(), "public", directory); // for localhost
     const defaultPath = path.join(process.cwd(), directory);
+    console.log(defaultPath);
     const difficulties = fs.readdirSync(defaultPath);
 
     difficulties.forEach((difficulty) => {
