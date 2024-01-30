@@ -36,39 +36,28 @@ export function extractCodeData(): CodeData[] {
 
             var codeData = new CodeData(0, "", "", "", "");
 
+            var language = "";
             if (path.extname(filePath) === ".py") {
-                const content = fs.readFileSync(filePath, "utf-8");
-                const [id, name] = path
-                    .basename(filePath)
-                    .match(/(\d+)_(.+)\.(\w+)/)!
-                    .slice(1);
-
-                const code = content;
-
-                codeData = new CodeData(
-                    parseInt(id),
-                    name,
-                    code,
-                    "Python",
-                    difficulty
-                );
+                language = "Python";
             } else if (path.extname(filePath) === ".js") {
-                const content = fs.readFileSync(filePath, "utf-8");
-                const [id, name] = path
-                    .basename(filePath)
-                    .match(/(\d+)_(.+)\.(\w+)/)!
-                    .slice(1);
-
-                const code = content;
-
-                codeData = new CodeData(
-                    parseInt(id),
-                    name,
-                    code,
-                    "JavaScript",
-                    difficulty
-                );
+                language = "JavaScript";
             }
+            const content = fs.readFileSync(filePath, "utf-8");
+            const [id, name] = path
+                .basename(filePath)
+                .match(/(\d+)_(.+)\.(\w+)/)!
+                .slice(1);
+
+            const code = content;
+
+            codeData = new CodeData(
+                parseInt(id),
+                name,
+                code,
+                language,
+                difficulty
+            );
+
             codeDataList.push(codeData);
         });
     });
